@@ -41,9 +41,12 @@ vehicle_capture_interval = 60  # 1 minuto en segundos para vehículos
 # Cargar modelo YOLO para detección de vehículos
 yolo_model = YOLO('yolov8n.pt')
 
-# Iniciar cámara (si usas un DVR, cambia 0 por la URL RTSP)
-cap = cv2.VideoCapture(0)
-
+# --- INSERTA AQUÍ LA URL DE TU DVR ---
+# Reemplaza esta línea con la URL RTSP de tu DVR.
+# Ejemplo: 'rtsp://admin:password123@192.168.1.100:554/cam/real/c0/s0'
+dvr_url = 'rtsp://[usuario]:[contraseña]@[dirección_ip]:[puerto]/[ruta_del_stream]'
+cap = cv2.VideoCapture(dvr_url)
+# -------------------------------------
 # Crear la ventana y asignar la función de callback del mouse
 cv2.namedWindow('Reconocimiento')
 cv2.setMouseCallback('Reconocimiento', mouse_callback)
